@@ -12,7 +12,7 @@ fileprivate struct WebServiceSource {
 }
 
 struct WebserviceUrl {
-    static let searchQuery = "\(WebServiceSource.baseURL)/search.json?q="
+    static let searchQuery = "\(WebServiceSource.baseURL)/search.json?"
     static let searchForTitle = "\(WebServiceSource.baseURL)/search.json?title="
     static let searchForAuthor = "\(WebServiceSource.baseURL)/search.json?author="
 }

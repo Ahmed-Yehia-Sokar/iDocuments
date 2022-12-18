@@ -9,7 +9,8 @@ import Foundation
 import Alamofire
 
 class WebserviceManager {
-    // MARK: - public methods.
+    // MARK: - public methods
+
     func callWebservice(webserviceUrl: String,
                         parameters: Parameters?,
                         successHandler: @escaping (Any) -> Void,
@@ -32,7 +33,8 @@ class WebserviceManager {
         }
     }
     
-    // MARK: - private methods.
+    // MARK: - private methods
+
     private func handleSuccessfulResponse(response: AFDataResponse<Data>,
                                           data: Data,
                                           successHandler: @escaping (Any) -> Void,

@@ -10,8 +10,14 @@
 		090603ABF665143BD342C4D4 /* Pods_iDocuments_iDocumentsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB923CD86EA172BCE42007C8 /* Pods_iDocuments_iDocumentsUITests.framework */; };
 		12806E290FC9F8EEB03AD7A6 /* Pods_iDocumentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7675ECC0CF612727A15A2F23 /* Pods_iDocumentsTests.framework */; };
 		657F696B65DE0A4182853D7A /* Pods_iDocuments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6046771C4E9E58C0362C3B5 /* Pods_iDocuments.framework */; };
+		8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */; };
+		8495CDE6294FA5FA003176CC /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE5294FA5FA003176CC /* Bindable.swift */; };
+		8495CDEA294FA6DA003176CC /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE9294FA6DA003176CC /* Document.swift */; };
+		8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDED294FA9A7003176CC /* DocumentServices.swift */; };
+		8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDF1294FACC1003176CC /* DocumentServicesContract.swift */; };
+		8495CDF5294FB4AC003176CC /* DocumentDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */; };
 		84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21F7294F4C2A00619226 /* AppDelegate.swift */; };
-		84FB21FC294F4C2A00619226 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21FB294F4C2A00619226 /* ViewController.swift */; };
+		84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */; };
 		84FB21FF294F4C2A00619226 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB21FD294F4C2A00619226 /* Main.storyboard */; };
 		84FB2201294F4C2C00619226 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FB2200294F4C2C00619226 /* Assets.xcassets */; };
 		84FB2204294F4C2C00619226 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB2202294F4C2C00619226 /* LaunchScreen.storyboard */; };
@@ -48,9 +54,15 @@
 		69E3F261C2512B52DC891AD0 /* Pods-iDocumentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDocumentsTests.debug.xcconfig"; path = "Target Support Files/Pods-iDocumentsTests/Pods-iDocumentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7675ECC0CF612727A15A2F23 /* Pods_iDocumentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDocumentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0274E818EA2B984AEB4FAF /* Pods-iDocuments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDocuments.debug.xcconfig"; path = "Target Support Files/Pods-iDocuments/Pods-iDocuments.debug.xcconfig"; sourceTree = "<group>"; };
+		8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewModel.swift; sourceTree = "<group>"; };
+		8495CDE5294FA5FA003176CC /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		8495CDE9294FA6DA003176CC /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		8495CDED294FA9A7003176CC /* DocumentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServices.swift; sourceTree = "<group>"; };
+		8495CDF1294FACC1003176CC /* DocumentServicesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServicesContract.swift; sourceTree = "<group>"; };
+		8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDataMapper.swift; sourceTree = "<group>"; };
 		84FB21F4294F4C2A00619226 /* iDocuments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDocuments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB21F7294F4C2A00619226 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84FB21FB294F4C2A00619226 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewController.swift; sourceTree = "<group>"; };
 		84FB21FE294F4C2A00619226 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84FB2200294F4C2C00619226 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84FB2203294F4C2C00619226 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,6 +130,108 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		841530C8294F9E8C005E4279 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				841530C9294F9F6C005E4279 /* list documents */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
+		841530C9294F9F6C005E4279 /* list documents */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDEB294FA976003176CC /* data */,
+				8495CDE7294FA69F003176CC /* domain */,
+				841530CA294F9F91005E4279 /* presentation */,
+			);
+			path = "list documents";
+			sourceTree = "<group>";
+		};
+		841530CA294F9F91005E4279 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */,
+				8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		841530CB294F9FEF005E4279 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				84FB2202294F4C2C00619226 /* LaunchScreen.storyboard */,
+				84FB21FD294F4C2A00619226 /* Main.storyboard */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		8495CDE4294FA5B8003176CC /* bindable */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDE5294FA5FA003176CC /* Bindable.swift */,
+			);
+			path = bindable;
+			sourceTree = "<group>";
+		};
+		8495CDE7294FA69F003176CC /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDEF294FAC55003176CC /* contracts */,
+				8495CDE8294FA6C4003176CC /* entities */,
+			);
+			path = domain;
+			sourceTree = "<group>";
+		};
+		8495CDE8294FA6C4003176CC /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDE9294FA6DA003176CC /* Document.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
+		8495CDEB294FA976003176CC /* data */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF3294FB482003176CC /* mappers */,
+				8495CDEC294FA97E003176CC /* services */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		8495CDEC294FA97E003176CC /* services */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDED294FA9A7003176CC /* DocumentServices.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
+		8495CDEF294FAC55003176CC /* contracts */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF0294FAC72003176CC /* services contracts */,
+			);
+			path = contracts;
+			sourceTree = "<group>";
+		};
+		8495CDF0294FAC72003176CC /* services contracts */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF1294FACC1003176CC /* DocumentServicesContract.swift */,
+			);
+			path = "services contracts";
+			sourceTree = "<group>";
+		};
+		8495CDF3294FB482003176CC /* mappers */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */,
+			);
+			path = mappers;
+			sourceTree = "<group>";
+		};
 		84FB21EB294F4C2A00619226 = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +258,9 @@
 			isa = PBXGroup;
 			children = (
 				84FB2228294F52E100619226 /* common */,
+				841530C8294F9E8C005E4279 /* features */,
 				84FB2227294F4D7500619226 /* main */,
-				84FB21FB294F4C2A00619226 /* ViewController.swift */,
-				84FB21FD294F4C2A00619226 /* Main.storyboard */,
-				84FB2202294F4C2C00619226 /* LaunchScreen.storyboard */,
+				841530CB294F9FEF005E4279 /* storyboards */,
 			);
 			path = iDocuments;
 			sourceTree = "<group>";
@@ -190,6 +303,7 @@
 		84FB2229294F52F500619226 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				8495CDE4294FA5B8003176CC /* bindable */,
 				84FB222A294F530300619226 /* webservice */,
 			);
 			path = classes;
@@ -444,11 +558,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8495CDF5294FB4AC003176CC /* DocumentDataMapper.swift in Sources */,
+				8495CDEA294FA6DA003176CC /* Document.swift in Sources */,
 				84FB2230294F539E00619226 /* WebserviceManager.swift in Sources */,
-				84FB21FC294F4C2A00619226 /* ViewController.swift in Sources */,
+				8495CDE6294FA5FA003176CC /* Bindable.swift in Sources */,
+				84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */,
+				8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */,
 				84FB2232294F53F500619226 /* WebserviceUrl.swift in Sources */,
 				84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */,
+				8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */,
 				84FB222E294F536300619226 /* StatusCode.swift in Sources */,
+				8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
