@@ -16,6 +16,10 @@
 		8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDED294FA9A7003176CC /* DocumentServices.swift */; };
 		8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDF1294FACC1003176CC /* DocumentServicesContract.swift */; };
 		8495CDF5294FB4AC003176CC /* DocumentDataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */; };
+		8495CDF9294FBC53003176CC /* DocumentServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDF8294FBC53003176CC /* DocumentServicesProvider.swift */; };
+		8495CDFC294FBD0B003176CC /* ListDocumentsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDFB294FBD0B003176CC /* ListDocumentsUsecase.swift */; };
+		8495CDFF294FC33D003176CC /* ListDocumentsUsecaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDFE294FC33D003176CC /* ListDocumentsUsecaseContract.swift */; };
+		8495CE02294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */; };
 		84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21F7294F4C2A00619226 /* AppDelegate.swift */; };
 		84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */; };
 		84FB21FF294F4C2A00619226 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB21FD294F4C2A00619226 /* Main.storyboard */; };
@@ -60,6 +64,10 @@
 		8495CDED294FA9A7003176CC /* DocumentServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServices.swift; sourceTree = "<group>"; };
 		8495CDF1294FACC1003176CC /* DocumentServicesContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServicesContract.swift; sourceTree = "<group>"; };
 		8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDataMapper.swift; sourceTree = "<group>"; };
+		8495CDF8294FBC53003176CC /* DocumentServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentServicesProvider.swift; sourceTree = "<group>"; };
+		8495CDFB294FBD0B003176CC /* ListDocumentsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecase.swift; sourceTree = "<group>"; };
+		8495CDFE294FC33D003176CC /* ListDocumentsUsecaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecaseContract.swift; sourceTree = "<group>"; };
+		8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecaseProvider.swift; sourceTree = "<group>"; };
 		84FB21F4294F4C2A00619226 /* iDocuments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDocuments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB21F7294F4C2A00619226 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8495CDEB294FA976003176CC /* data */,
+				8495CDF6294FBC05003176CC /* dependencies */,
 				8495CDE7294FA69F003176CC /* domain */,
 				841530CA294F9F91005E4279 /* presentation */,
 			);
@@ -179,6 +188,7 @@
 			children = (
 				8495CDEF294FAC55003176CC /* contracts */,
 				8495CDE8294FA6C4003176CC /* entities */,
+				8495CDFA294FBCD8003176CC /* usecases */,
 			);
 			path = domain;
 			sourceTree = "<group>";
@@ -212,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				8495CDF0294FAC72003176CC /* services contracts */,
+				8495CDFD294FC314003176CC /* usecases contracts */,
 			);
 			path = contracts;
 			sourceTree = "<group>";
@@ -230,6 +241,47 @@
 				8495CDF4294FB4AC003176CC /* DocumentDataMapper.swift */,
 			);
 			path = mappers;
+			sourceTree = "<group>";
+		};
+		8495CDF6294FBC05003176CC /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF7294FBC2E003176CC /* services providers */,
+				8495CE00294FC651003176CC /* usecases providers */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		8495CDF7294FBC2E003176CC /* services providers */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDF8294FBC53003176CC /* DocumentServicesProvider.swift */,
+			);
+			path = "services providers";
+			sourceTree = "<group>";
+		};
+		8495CDFA294FBCD8003176CC /* usecases */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDFB294FBD0B003176CC /* ListDocumentsUsecase.swift */,
+			);
+			path = usecases;
+			sourceTree = "<group>";
+		};
+		8495CDFD294FC314003176CC /* usecases contracts */ = {
+			isa = PBXGroup;
+			children = (
+				8495CDFE294FC33D003176CC /* ListDocumentsUsecaseContract.swift */,
+			);
+			path = "usecases contracts";
+			sourceTree = "<group>";
+		};
+		8495CE00294FC651003176CC /* usecases providers */ = {
+			isa = PBXGroup;
+			children = (
+				8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */,
+			);
+			path = "usecases providers";
 			sourceTree = "<group>";
 		};
 		84FB21EB294F4C2A00619226 = {
@@ -561,14 +613,18 @@
 				8495CDF5294FB4AC003176CC /* DocumentDataMapper.swift in Sources */,
 				8495CDEA294FA6DA003176CC /* Document.swift in Sources */,
 				84FB2230294F539E00619226 /* WebserviceManager.swift in Sources */,
+				8495CDF9294FBC53003176CC /* DocumentServicesProvider.swift in Sources */,
 				8495CDE6294FA5FA003176CC /* Bindable.swift in Sources */,
 				84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */,
 				8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */,
 				84FB2232294F53F500619226 /* WebserviceUrl.swift in Sources */,
+				8495CDFC294FBD0B003176CC /* ListDocumentsUsecase.swift in Sources */,
 				84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */,
+				8495CDFF294FC33D003176CC /* ListDocumentsUsecaseContract.swift in Sources */,
 				8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */,
 				84FB222E294F536300619226 /* StatusCode.swift in Sources */,
 				8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */,
+				8495CE02294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
