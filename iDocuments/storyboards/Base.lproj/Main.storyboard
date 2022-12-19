@@ -22,12 +22,15 @@
                                     <constraint firstAttribute="height" constant="50" id="00V-mx-sDT"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7VH-SC-h86"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-OQ-EFA">
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="wBk-5X-WOz">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DocumentTableCell" id="wBk-5X-WOz" customClass="DocumentTableCell" customModule="iDocuments" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wBk-5X-WOz" id="Dxg-5P-2Wg">
@@ -37,13 +40,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FLb-8o-EIt">
                                                     <rect key="frame" x="16" y="0.0" width="382" height="60"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the lord of the rings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-ad-2cI">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the lord of the rings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdD-ad-2cI">
                                                             <rect key="frame" x="0.0" y="0.0" width="187" height="60"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J. R. R. Tolkien" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-7L-tZZ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J. R. R. Tolkien" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKj-7L-tZZ">
                                                             <rect key="frame" x="195" y="0.0" width="187" height="60"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -59,8 +62,16 @@
                                                 <constraint firstItem="FLb-8o-EIt" firstAttribute="leading" secondItem="Dxg-5P-2Wg" secondAttribute="leading" constant="16" id="ziQ-ZF-mMU"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="documentAuthorLabel" destination="LKj-7L-tZZ" id="7at-jL-pS8"/>
+                                            <outlet property="documentTitleLabel" destination="EdD-ad-2cI" id="9ac-dK-7bo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hZy-ve-iGe"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Jkg-xo-mgq"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJD-an-nzA" userLabel="Empty View">
                                 <rect key="frame" x="0.0" y="94" width="414" height="768"/>
@@ -78,6 +89,9 @@
                                     <constraint firstItem="Stj-b0-mmo" firstAttribute="centerX" secondItem="kJD-an-nzA" secondAttribute="centerX" id="KLW-G6-CeA"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kD7-AD-kO7">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,6 +101,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kJD-an-nzA" secondAttribute="bottom" id="PrA-dw-iRr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kJD-an-nzA" secondAttribute="trailing" id="UO2-ld-cDI"/>
                             <constraint firstItem="V8A-Fd-h4t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="X4E-qQ-6u9"/>
+                            <constraint firstItem="kD7-AD-kO7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Y7K-Rk-qL4"/>
+                            <constraint firstItem="kD7-AD-kO7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="aHl-WJ-4Ix"/>
                             <constraint firstItem="kJD-an-nzA" firstAttribute="top" secondItem="V8A-Fd-h4t" secondAttribute="bottom" id="b0J-1c-CHy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X1w-OQ-EFA" secondAttribute="trailing" id="cHp-KU-Qmz"/>
                             <constraint firstItem="X1w-OQ-EFA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dbJ-3R-7G6"/>
@@ -96,6 +112,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="kD7-AD-kO7" id="9Ck-oP-q8S"/>
                         <outlet property="emptyView" destination="kJD-an-nzA" id="ees-7k-9SX"/>
                         <outlet property="tableView" destination="X1w-OQ-EFA" id="NMj-Y9-cGe"/>
                     </connections>

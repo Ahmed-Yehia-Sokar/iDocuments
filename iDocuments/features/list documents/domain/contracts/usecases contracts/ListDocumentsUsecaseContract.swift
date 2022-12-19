@@ -9,6 +9,7 @@ import Foundation
 
 protocol ListDocumentsUsecaseContract {
     func listDocuments(forQuery query: String,
+                       page: Int,
                        completionHandler: @escaping ([Document]) -> Void,
                        errorHandler: @escaping (String) -> Void)
 }

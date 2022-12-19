@@ -10,6 +10,8 @@
 		090603ABF665143BD342C4D4 /* Pods_iDocuments_iDocumentsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB923CD86EA172BCE42007C8 /* Pods_iDocuments_iDocumentsUITests.framework */; };
 		12806E290FC9F8EEB03AD7A6 /* Pods_iDocumentsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7675ECC0CF612727A15A2F23 /* Pods_iDocumentsTests.framework */; };
 		657F696B65DE0A4182853D7A /* Pods_iDocuments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6046771C4E9E58C0362C3B5 /* Pods_iDocuments.framework */; };
+		846DB373295079DF0092A271 /* DocumentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846DB372295079DF0092A271 /* DocumentTableCell.swift */; };
+		849161BA29504728002E3AB8 /* ListDocumentsViewModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849161B929504728002E3AB8 /* ListDocumentsViewModelProvider.swift */; };
 		8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */; };
 		8495CDE6294FA5FA003176CC /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE5294FA5FA003176CC /* Bindable.swift */; };
 		8495CDEA294FA6DA003176CC /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDE9294FA6DA003176CC /* Document.swift */; };
@@ -58,6 +60,8 @@
 		69E3F261C2512B52DC891AD0 /* Pods-iDocumentsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDocumentsTests.debug.xcconfig"; path = "Target Support Files/Pods-iDocumentsTests/Pods-iDocumentsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7675ECC0CF612727A15A2F23 /* Pods_iDocumentsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iDocumentsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B0274E818EA2B984AEB4FAF /* Pods-iDocuments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iDocuments.debug.xcconfig"; path = "Target Support Files/Pods-iDocuments/Pods-iDocuments.debug.xcconfig"; sourceTree = "<group>"; };
+		846DB372295079DF0092A271 /* DocumentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableCell.swift; sourceTree = "<group>"; };
+		849161B929504728002E3AB8 /* ListDocumentsViewModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewModelProvider.swift; sourceTree = "<group>"; };
 		8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewModel.swift; sourceTree = "<group>"; };
 		8495CDE5294FA5FA003176CC /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		8495CDE9294FA6DA003176CC /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		841530CA294F9F91005E4279 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				846DB372295079DF0092A271 /* DocumentTableCell.swift */,
 				84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */,
 				8495CDE2294FA36A003176CC /* ListDocumentsViewModel.swift */,
 			);
@@ -173,6 +178,14 @@
 				84FB21FD294F4C2A00619226 /* Main.storyboard */,
 			);
 			path = storyboards;
+			sourceTree = "<group>";
+		};
+		849161B829504662002E3AB8 /* viewmodels providers */ = {
+			isa = PBXGroup;
+			children = (
+				849161B929504728002E3AB8 /* ListDocumentsViewModelProvider.swift */,
+			);
+			path = "viewmodels providers";
 			sourceTree = "<group>";
 		};
 		8495CDE4294FA5B8003176CC /* bindable */ = {
@@ -248,6 +261,7 @@
 			children = (
 				8495CDF7294FBC2E003176CC /* services providers */,
 				8495CE00294FC651003176CC /* usecases providers */,
+				849161B829504662002E3AB8 /* viewmodels providers */,
 			);
 			path = dependencies;
 			sourceTree = "<group>";
@@ -614,6 +628,7 @@
 				8495CDEA294FA6DA003176CC /* Document.swift in Sources */,
 				84FB2230294F539E00619226 /* WebserviceManager.swift in Sources */,
 				8495CDF9294FBC53003176CC /* DocumentServicesProvider.swift in Sources */,
+				849161BA29504728002E3AB8 /* ListDocumentsViewModelProvider.swift in Sources */,
 				8495CDE6294FA5FA003176CC /* Bindable.swift in Sources */,
 				84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */,
 				8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */,
@@ -624,6 +639,7 @@
 				8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */,
 				84FB222E294F536300619226 /* StatusCode.swift in Sources */,
 				8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */,
+				846DB373295079DF0092A271 /* DocumentTableCell.swift in Sources */,
 				8495CE02294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

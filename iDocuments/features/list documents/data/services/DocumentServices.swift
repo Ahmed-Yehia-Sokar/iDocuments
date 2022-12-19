@@ -25,8 +25,8 @@ class DocumentServices: DocumentServicesContract {
                       page: Int,
                       completionHandler: @escaping ([Document]) -> Void,
                       errorHandler: @escaping (String) -> Void) {
-        self.getDocumentsCompletionHandler = completionHandler
-        self.getDocumentsErrorHandler = errorHandler
+        getDocumentsCompletionHandler = completionHandler
+        getDocumentsErrorHandler = errorHandler
         
         let parameters: Parameters = [
             "q": query,

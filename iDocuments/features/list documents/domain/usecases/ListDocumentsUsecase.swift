@@ -11,7 +11,6 @@ class ListDocumentsUsecase: ListDocumentsUsecaseContract {
     // MARK: - properties
     
     private let documentServices: DocumentServicesContract
-    private var currentPage = 0
     
     // MARK: - public methods
     
@@ -20,12 +19,11 @@ class ListDocumentsUsecase: ListDocumentsUsecaseContract {
     }
     
     func listDocuments(forQuery query: String,
+                       page: Int = 1,
                        completionHandler: @escaping ([Document]) -> Void,
                        errorHandler: @escaping (String) -> Void) {
-        currentPage += 1
-        
         documentServices.getDocuments(forQuery: query,
-                                      page: currentPage,
+                                      page: page,
                                       completionHandler: completionHandler,
                                       errorHandler: errorHandler)
     }

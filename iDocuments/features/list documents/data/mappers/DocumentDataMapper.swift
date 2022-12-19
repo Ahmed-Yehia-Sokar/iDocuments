@@ -19,11 +19,12 @@ class DocumentDataMapper {
         
         for doc in docsList {
             let title = (doc["title_suggest"] as? String) ?? ""
-            let author = (doc["author_name"] as? String) ?? ""
+            let authorNamesList = (doc["author_name"] as? [String]) ?? []
+            let firstAuthorName = authorNamesList.first ?? ""
             let isbnsList = (doc["isbn"] as? [String]) ?? []
             let firstFiveISBNsList = Array(isbnsList.prefix(5))
             let document = Document(title: title,
-                                    author: author,
+                                    author: firstAuthorName,
                                     isbnsList: firstFiveISBNsList)
             
             documentsList.append(document)
