@@ -114,6 +114,7 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="kD7-AD-kO7" id="9Ck-oP-q8S"/>
                         <outlet property="emptyView" destination="kJD-an-nzA" id="ees-7k-9SX"/>
+                        <outlet property="searchBar" destination="V8A-Fd-h4t" id="uKN-9I-VdI"/>
                         <outlet property="tableView" destination="X1w-OQ-EFA" id="NMj-Y9-cGe"/>
                     </connections>
                 </viewController>

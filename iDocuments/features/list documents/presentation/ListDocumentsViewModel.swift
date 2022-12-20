@@ -10,9 +10,10 @@ import Foundation
 class ListDocumentsViewModel {
     // MARK: - properties
     
-    private(set) var documentsList = Bindable<[Document]>()
-    private var currentPage = 1
     private let listDocumentsUsecase: ListDocumentsUsecaseContract
+    private var currentPage = 1
+    private(set) var isPaginationOn = false
+    private(set) var documentsList = Bindable<[Document]>()
     
     // MARK: - public methods
     
@@ -21,18 +22,22 @@ class ListDocumentsViewModel {
     }
     
     func listDocuments(forQuery query: String,
-                       inquireNextPage: Bool = false,
+                       isPaginationOn: Bool = false,
                        errorHandler: @escaping (String) -> Void) {
-        if inquireNextPage {
+        if isPaginationOn {
             currentPage += 1
+            self.isPaginationOn = true
         }
         
         listDocumentsUsecase.listDocuments(forQuery: query,
-                                           page: currentPage) { newDocumentsList in
-            var updatedDocumentsList = self.documentsList.value ?? []
+                                           page: currentPage) { [weak self] newDocumentsList in
+            guard let unwrappedSelf = self else { return }
+            unwrappedSelf.isPaginationOn = false
+            
+            var updatedDocumentsList = unwrappedSelf.documentsList.value ?? []
             
             updatedDocumentsList.append(contentsOf: newDocumentsList)
-            self.documentsList.value = updatedDocumentsList
+            unwrappedSelf.documentsList.value = updatedDocumentsList
         } errorHandler: { errorMessage in
             errorHandler(errorMessage)
         }
@@ -40,9 +45,10 @@ class ListDocumentsViewModel {
     
     func resetCurrentPage() {
         currentPage = 1
+        isPaginationOn = false
     }
     
     func makeDocumentsListEmpty() {
-        self.documentsList.value?.removeAll()
+        documentsList.value?.removeAll()
     }
 }

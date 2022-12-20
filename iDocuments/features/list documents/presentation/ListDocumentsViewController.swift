@@ -10,6 +10,7 @@ import UIKit
 class ListDocumentsViewController: UIViewController {
     // MARK: - IBOutlets
    
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
@@ -73,7 +74,16 @@ extension ListDocumentsViewController: UISearchBarDelegate {
 }
 
 extension ListDocumentsViewController: UITableViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > (tableView.contentSize.height - 50) - (scrollView.frame.size.height) {
+            guard let searchText = searchBar.text else { return }
+            guard !listDocumentsViewModel.isPaginationOn else { return }
+
+            listDocumentsViewModel.listDocuments(forQuery: searchText,
+                                                 isPaginationOn: true,
+                                                 errorHandler: listDocumentsErrorHandler)
+        }
+    }
 }
 
 extension ListDocumentsViewController: UITableViewDataSource {
