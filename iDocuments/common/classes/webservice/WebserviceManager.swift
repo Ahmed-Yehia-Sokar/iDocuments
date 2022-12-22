@@ -15,6 +15,12 @@ class WebserviceManager {
                         parameters: Parameters?,
                         successHandler: @escaping (Any) -> Void,
                         errorHandler: @escaping ([String: Any]) -> Void) {
+        if !isConnectedToInternet() {
+            errorHandler([
+                "description": "Check your internet connection"
+            ])
+        }
+        
         AF.request(webserviceUrl,
                    method: .get,
                    parameters: parameters)
@@ -35,6 +41,10 @@ class WebserviceManager {
     
     // MARK: - private methods
 
+    private func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+    
     private func handleSuccessfulResponse(response: AFDataResponse<Data>,
                                           data: Data,
                                           successHandler: @escaping (Any) -> Void,

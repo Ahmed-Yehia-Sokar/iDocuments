@@ -65,6 +65,9 @@ class ListDocumentsViewController: UIViewController {
     // MARK: - private methods
     
     private func listDocumentsErrorHandler(errorMessage: String) {
+        activityIndicatorView.isHidden = true
+        activityIndicatorView.stopAnimating()
+        
         let alert = UIAlertController(title: "Error",
                                       message: errorMessage,
                                       preferredStyle: .alert)
@@ -110,6 +113,10 @@ extension ListDocumentsViewController: UISearchBarDelegate {
             listDocumentsViewModel.resetSearchForSpecificTitle()
             listDocumentsViewModel.resetSearchForSpecificAuthor()
             listDocumentsViewModel.resetPagination()
+        }
+        
+        if listDocumentsViewModel.getDocumentsCount() == 0 {
+            emptyView.isHidden = false
         }
     }
     
