@@ -39,6 +39,44 @@ class DocumentServices: DocumentServicesContract {
                                          errorHandler: getDocumentsErrorHandler)
     }
     
+    func getDocuments(forTitle title: String,
+                      page: Int,
+                      completionHandler: @escaping ([Document]) -> Void,
+                      errorHandler: @escaping (String) -> Void) {
+        getDocumentsCompletionHandler = completionHandler
+        getDocumentsErrorHandler = errorHandler
+        
+        let parameters: Parameters = [
+            "title": title,
+            "page": page
+        ]
+        
+        webserviceManager.callWebservice(webserviceUrl: WebserviceUrl.searchQuery,
+                                         parameters: parameters,
+                                         successHandler: getDocumentsSuccessHandler,
+                                         errorHandler: getDocumentsErrorHandler)
+
+    }
+    
+    func getDocuments(forAuthor author: String,
+                      page: Int,
+                      completionHandler: @escaping ([Document]) -> Void,
+                      errorHandler: @escaping (String) -> Void) {
+        getDocumentsCompletionHandler = completionHandler
+        getDocumentsErrorHandler = errorHandler
+        
+        let parameters: Parameters = [
+            "author": author,
+            "page": page
+        ]
+        
+        webserviceManager.callWebservice(webserviceUrl: WebserviceUrl.searchQuery,
+                                         parameters: parameters,
+                                         successHandler: getDocumentsSuccessHandler,
+                                         errorHandler: getDocumentsErrorHandler)
+
+    }
+    
     // MARK: - private methods
     
     private func getDocumentsSuccessHandler(response: Any) {

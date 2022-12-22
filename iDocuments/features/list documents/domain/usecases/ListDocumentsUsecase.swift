@@ -27,4 +27,24 @@ class ListDocumentsUsecase: ListDocumentsUsecaseContract {
                                       completionHandler: completionHandler,
                                       errorHandler: errorHandler)
     }
+    
+    func listDocuments(forTitle title: String,
+                       page: Int,
+                       completionHandler: @escaping ([Document]) -> Void,
+                       errorHandler: @escaping (String) -> Void) {
+        documentServices.getDocuments(forTitle: title,
+                                      page: page,
+                                      completionHandler: completionHandler,
+                                      errorHandler: errorHandler)
+    }
+    
+    func listDocuments(forAuthor author: String,
+                       page: Int,
+                       completionHandler: @escaping ([Document]) -> Void,
+                       errorHandler: @escaping (String) -> Void) {
+        documentServices.getDocuments(forAuthor: author,
+                                      page: page,
+                                      completionHandler: completionHandler,
+                                      errorHandler: errorHandler)
+    }
 }

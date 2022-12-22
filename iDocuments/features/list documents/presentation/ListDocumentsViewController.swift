@@ -24,6 +24,16 @@ class ListDocumentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(searchByTitleHandler),
+                                               name: NotificationName.searchByTitle,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(searchByAuthorHandler),
+                                               name: NotificationName.searchByAuthor,
+                                               object: nil)
+        
         activityIndicatorView.isHidden = true
 
         listDocumentsViewModel.documentsList.bind { [weak self] documentsList in
@@ -64,6 +74,30 @@ class ListDocumentsViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    @objc private func searchByTitleHandler() {
+        if listDocumentsViewModel.isSelectedDocumentTitleValid() {
+            searchBar.text = listDocumentsViewModel.returnSelectedDocumentTitle()
+            activityIndicatorView.isHidden = false
+            activityIndicatorView.startAnimating()
+            listDocumentsViewModel.resetPagination()
+            
+            listDocumentsViewModel.listDocuments(forTitle: listDocumentsViewModel.returnSelectedDocumentTitle(),
+                                                 errorHandler: listDocumentsErrorHandler)
+        }
+    }
+    
+    @objc private func searchByAuthorHandler() {
+        if listDocumentsViewModel.isSelectedDocumentAuthorValid() {
+            searchBar.text = listDocumentsViewModel.returnSelectedDocumentAuthor()
+            activityIndicatorView.isHidden = false
+            activityIndicatorView.startAnimating()
+            listDocumentsViewModel.resetPagination()
+            
+            listDocumentsViewModel.listDocuments(forAuthor: listDocumentsViewModel.returnSelectedDocumentAuthor(),
+                                                errorHandler: listDocumentsErrorHandler)
+        }
+    }
 }
 
 extension ListDocumentsViewController: UISearchBarDelegate {
@@ -73,6 +107,8 @@ extension ListDocumentsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
+            listDocumentsViewModel.resetSearchForSpecificTitle()
+            listDocumentsViewModel.resetSearchForSpecificAuthor()
             listDocumentsViewModel.resetPagination()
         }
     }
@@ -90,6 +126,8 @@ extension ListDocumentsViewController: UISearchBarDelegate {
 extension ListDocumentsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let selectedDocument = listDocumentsViewModel.getDocument(atIndexPath: indexPath) {
+            listDocumentsViewModel.setSelectedDocument(selectedDocument: selectedDocument)
+            
             if let documentDetailsVC = storyboard?.instantiateViewController(withIdentifier: "DocumentDetailsViewController") as? DocumentDetailsViewController {
                 let documentDetailsVM = DocumentDetailsViewModelProvider.getDocumentDetailsViewModel(withDocument: selectedDocument)
                 
@@ -103,10 +141,20 @@ extension ListDocumentsViewController: UITableViewDelegate {
         if scrollView.contentOffset.y > (tableView.contentSize.height - 50) - (scrollView.frame.size.height) {
             guard let searchText = searchBar.text else { return }
             guard !listDocumentsViewModel.isPaginationOn else { return }
-
-            listDocumentsViewModel.listDocuments(forQuery: searchText,
-                                                 isPaginationOn: true,
-                                                 errorHandler: listDocumentsErrorHandler)
+            
+            if listDocumentsViewModel.searchForSpecificTitle {
+                listDocumentsViewModel.listDocuments(forTitle: searchText,
+                                                     isPaginationOn: true,
+                                                     errorHandler: listDocumentsErrorHandler)
+            } else if listDocumentsViewModel.searchForSpecificAuthor {
+                listDocumentsViewModel.listDocuments(forAuthor: searchText,
+                                                     isPaginationOn: true,
+                                                     errorHandler: listDocumentsErrorHandler)
+            } else {
+                listDocumentsViewModel.listDocuments(forQuery: searchText,
+                                                     isPaginationOn: true,
+                                                     errorHandler: listDocumentsErrorHandler)
+            }
         }
     }
 }

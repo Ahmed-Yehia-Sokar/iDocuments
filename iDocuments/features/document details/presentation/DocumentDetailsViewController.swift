@@ -26,7 +26,15 @@ class DocumentDetailsViewController: UIViewController {
 }
 
 extension DocumentDetailsViewController: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            NotificationCenter.default.post(name: NotificationName.searchByTitle, object: nil)
+        } else if indexPath.section == 1 {
+            NotificationCenter.default.post(name: NotificationName.searchByAuthor, object: nil)
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension DocumentDetailsViewController: UITableViewDataSource {

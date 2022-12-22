@@ -12,4 +12,14 @@ protocol ListDocumentsUsecaseContract {
                        page: Int,
                        completionHandler: @escaping ([Document]) -> Void,
                        errorHandler: @escaping (String) -> Void)
+    
+    func listDocuments(forTitle title: String,
+                      page: Int,
+                      completionHandler: @escaping ([Document]) -> Void,
+                      errorHandler: @escaping (String) -> Void)
+    
+    func listDocuments(forAuthor author: String,
+                      page: Int,
+                      completionHandler: @escaping ([Document]) -> Void,
+                      errorHandler: @escaping (String) -> Void)
 }

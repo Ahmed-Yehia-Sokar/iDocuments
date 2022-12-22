@@ -15,6 +15,4 @@ fileprivate struct WebServiceSource {
 struct WebserviceUrl {
     static let searchQuery = "\(WebServiceSource.baseURL)/search.json?"
     static let coverURL = "\(WebServiceSource.couverBaseURL)/"
-    static let searchForTitle = "\(WebServiceSource.baseURL)/search.json?title="
-    static let searchForAuthor = "\(WebServiceSource.baseURL)/search.json?author="
 }
