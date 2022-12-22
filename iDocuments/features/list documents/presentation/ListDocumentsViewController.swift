@@ -19,22 +19,37 @@ class ListDocumentsViewController: UIViewController {
     
     private let listDocumentsViewModel = ListDocumentsViewModelProvider.getListDocumentsViewModel()
     
+    // MARK: - public methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         activityIndicatorView.isHidden = true
 
-        listDocumentsViewModel.documentsList.bind { documentsList in
+        listDocumentsViewModel.documentsList.bind { [weak self] documentsList in
+            guard let unwrappedSelf = self else { return }
             if let documentsList = documentsList,
                documentsList.isEmpty {
-                self.emptyView.isHidden = false
+                unwrappedSelf.emptyView.isHidden = false
             } else {
-                self.activityIndicatorView.isHidden = true
-                self.emptyView.isHidden = true
-                self.activityIndicatorView.stopAnimating()
-                self.tableView.reloadData()
+                unwrappedSelf.activityIndicatorView.isHidden = true
+                unwrappedSelf.emptyView.isHidden = true
+                unwrappedSelf.activityIndicatorView.stopAnimating()
+                unwrappedSelf.tableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     // MARK: - private methods
@@ -58,8 +73,7 @@ extension ListDocumentsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            listDocumentsViewModel.resetCurrentPage()
-            listDocumentsViewModel.makeDocumentsListEmpty()
+            listDocumentsViewModel.resetPagination()
         }
     }
     
@@ -74,6 +88,17 @@ extension ListDocumentsViewController: UISearchBarDelegate {
 }
 
 extension ListDocumentsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let selectedDocument = listDocumentsViewModel.getDocument(atIndexPath: indexPath) {
+            if let documentDetailsVC = storyboard?.instantiateViewController(withIdentifier: "DocumentDetailsViewController") as? DocumentDetailsViewController {
+                let documentDetailsVM = DocumentDetailsViewModelProvider.getDocumentDetailsViewModel(withDocument: selectedDocument)
+                
+                documentDetailsVC.initViewController(withViewModel: documentDetailsVM)
+                navigationController?.pushViewController(documentDetailsVC, animated: true)
+            }
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.contentOffset.y > (tableView.contentSize.height - 50) - (scrollView.frame.size.height) {
             guard let searchText = searchBar.text else { return }
@@ -88,12 +113,12 @@ extension ListDocumentsViewController: UITableViewDelegate {
 
 extension ListDocumentsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        listDocumentsViewModel.documentsList.value?.count ?? 0
+        listDocumentsViewModel.getDocumentsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DocumentTableCell", for: indexPath) as? DocumentTableCell,
-              let document = listDocumentsViewModel.documentsList.value?[indexPath.row] else {
+              let document = listDocumentsViewModel.getDocument(atIndexPath: indexPath) else {
             return DocumentTableCell()
         }
         

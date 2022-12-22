@@ -13,4 +13,5 @@ struct Document {
     let title: String
     let author: String
     let isbnsList: [String]
+    let coverURLsList: [String]
 }

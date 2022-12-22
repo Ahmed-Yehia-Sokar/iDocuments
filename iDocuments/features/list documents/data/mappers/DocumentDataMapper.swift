@@ -7,6 +7,12 @@
 
 import Foundation
 
+fileprivate enum CoverImageSize: String {
+    case small = "-S.jpg"
+    case meduim = "-M.jpg"
+    case large = "-L.jpg"
+}
+
 class DocumentDataMapper {
     // MARK: - methods
     
@@ -20,12 +26,20 @@ class DocumentDataMapper {
         for doc in docsList {
             let title = doc.getString("title_suggest")
             let authorNamesList = doc.getArray("author_name") as? [String]
-            let isbnsList = (doc.getArray("isbn") as? [String]) ?? []
+            var isbnsList = (doc.getArray("isbn") as? [String]) ?? []
             let firstAuthorName = authorNamesList?.first(where: { $0 != "" }) ?? ""
-            let firstFiveISBNsList = Array(isbnsList.prefix(5))
+            
+            if isbnsList.count > 5 {
+                isbnsList = Array(isbnsList.prefix(5))
+            }
+            
+            let coverURLsList = isbnsList.map { isbn in
+                WebserviceUrl.coverURL + isbn + CoverImageSize.meduim.rawValue
+            }
             let document = Document(title: title,
                                     author: firstAuthorName,
-                                    isbnsList: firstFiveISBNsList)
+                                    isbnsList: isbnsList,
+                                    coverURLsList: coverURLsList)
             
             result.append(document)
         }

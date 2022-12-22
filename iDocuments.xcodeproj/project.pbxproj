@@ -23,6 +23,12 @@
 		8495CDFC294FBD0B003176CC /* ListDocumentsUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDFB294FBD0B003176CC /* ListDocumentsUsecase.swift */; };
 		8495CDFF294FC33D003176CC /* ListDocumentsUsecaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CDFE294FC33D003176CC /* ListDocumentsUsecaseContract.swift */; };
 		8495CE02294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */; };
+		84EC91A329545128002CD0C0 /* DocumentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91A229545128002CD0C0 /* DocumentDetailsViewController.swift */; };
+		84EC91A529545301002CD0C0 /* DocumentDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91A429545301002CD0C0 /* DocumentDetailsViewModel.swift */; };
+		84EC91A929545386002CD0C0 /* DocumentDetailsViewModelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91A829545386002CD0C0 /* DocumentDetailsViewModelProvider.swift */; };
+		84EC91AB295461CA002CD0C0 /* DocumentTitleTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91AA295461CA002CD0C0 /* DocumentTitleTableCell.swift */; };
+		84EC91AD29546AC5002CD0C0 /* DocumentAuthorTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91AC29546AC5002CD0C0 /* DocumentAuthorTableCell.swift */; };
+		84EC91AF29546B0E002CD0C0 /* DocumentCoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EC91AE29546B0E002CD0C0 /* DocumentCoverTableCell.swift */; };
 		84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21F7294F4C2A00619226 /* AppDelegate.swift */; };
 		84FB21FC294F4C2A00619226 /* ListDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */; };
 		84FB21FF294F4C2A00619226 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84FB21FD294F4C2A00619226 /* Main.storyboard */; };
@@ -74,6 +80,12 @@
 		8495CDFB294FBD0B003176CC /* ListDocumentsUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecase.swift; sourceTree = "<group>"; };
 		8495CDFE294FC33D003176CC /* ListDocumentsUsecaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecaseContract.swift; sourceTree = "<group>"; };
 		8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsUsecaseProvider.swift; sourceTree = "<group>"; };
+		84EC91A229545128002CD0C0 /* DocumentDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailsViewController.swift; sourceTree = "<group>"; };
+		84EC91A429545301002CD0C0 /* DocumentDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailsViewModel.swift; sourceTree = "<group>"; };
+		84EC91A829545386002CD0C0 /* DocumentDetailsViewModelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailsViewModelProvider.swift; sourceTree = "<group>"; };
+		84EC91AA295461CA002CD0C0 /* DocumentTitleTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTitleTableCell.swift; sourceTree = "<group>"; };
+		84EC91AC29546AC5002CD0C0 /* DocumentAuthorTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAuthorTableCell.swift; sourceTree = "<group>"; };
+		84EC91AE29546B0E002CD0C0 /* DocumentCoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCoverTableCell.swift; sourceTree = "<group>"; };
 		84FB21F4294F4C2A00619226 /* iDocuments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDocuments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FB21F7294F4C2A00619226 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FB21FB294F4C2A00619226 /* ListDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDocumentsViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +159,7 @@
 		841530C8294F9E8C005E4279 /* features */ = {
 			isa = PBXGroup;
 			children = (
+				84EC919E29544FA4002CD0C0 /* document details */,
 				841530C9294F9F6C005E4279 /* list documents */,
 			);
 			path = features;
@@ -306,6 +319,43 @@
 				8495CE01294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift */,
 			);
 			path = "usecases providers";
+			sourceTree = "<group>";
+		};
+		84EC919E29544FA4002CD0C0 /* document details */ = {
+			isa = PBXGroup;
+			children = (
+				84EC91A629545360002CD0C0 /* dependencies */,
+				84EC919F29545095002CD0C0 /* presentation */,
+			);
+			path = "document details";
+			sourceTree = "<group>";
+		};
+		84EC919F29545095002CD0C0 /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				84EC91AC29546AC5002CD0C0 /* DocumentAuthorTableCell.swift */,
+				84EC91AE29546B0E002CD0C0 /* DocumentCoverTableCell.swift */,
+				84EC91A229545128002CD0C0 /* DocumentDetailsViewController.swift */,
+				84EC91A429545301002CD0C0 /* DocumentDetailsViewModel.swift */,
+				84EC91AA295461CA002CD0C0 /* DocumentTitleTableCell.swift */,
+			);
+			path = presentation;
+			sourceTree = "<group>";
+		};
+		84EC91A629545360002CD0C0 /* dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				84EC91A72954536B002CD0C0 /* viewmodels providers */,
+			);
+			path = dependencies;
+			sourceTree = "<group>";
+		};
+		84EC91A72954536B002CD0C0 /* viewmodels providers */ = {
+			isa = PBXGroup;
+			children = (
+				84EC91A829545386002CD0C0 /* DocumentDetailsViewModelProvider.swift */,
+			);
+			path = "viewmodels providers";
 			sourceTree = "<group>";
 		};
 		84FB21EB294F4C2A00619226 = {
@@ -637,6 +687,7 @@
 			files = (
 				8495CDF5294FB4AC003176CC /* DocumentDataMapper.swift in Sources */,
 				8495CDEA294FA6DA003176CC /* Document.swift in Sources */,
+				84EC91AB295461CA002CD0C0 /* DocumentTitleTableCell.swift in Sources */,
 				84FB2230294F539E00619226 /* WebserviceManager.swift in Sources */,
 				8495CDF9294FBC53003176CC /* DocumentServicesProvider.swift in Sources */,
 				849161BA29504728002E3AB8 /* ListDocumentsViewModelProvider.swift in Sources */,
@@ -645,12 +696,17 @@
 				8495CDF2294FACC1003176CC /* DocumentServicesContract.swift in Sources */,
 				84FB2232294F53F500619226 /* WebserviceUrl.swift in Sources */,
 				84364E2429519C3600AAA84C /* DictionaryExtension.swift in Sources */,
+				84EC91A529545301002CD0C0 /* DocumentDetailsViewModel.swift in Sources */,
 				8495CDFC294FBD0B003176CC /* ListDocumentsUsecase.swift in Sources */,
 				84FB21F8294F4C2A00619226 /* AppDelegate.swift in Sources */,
 				8495CDFF294FC33D003176CC /* ListDocumentsUsecaseContract.swift in Sources */,
 				8495CDEE294FA9A7003176CC /* DocumentServices.swift in Sources */,
+				84EC91A329545128002CD0C0 /* DocumentDetailsViewController.swift in Sources */,
+				84EC91A929545386002CD0C0 /* DocumentDetailsViewModelProvider.swift in Sources */,
 				84FB222E294F536300619226 /* StatusCode.swift in Sources */,
+				84EC91AD29546AC5002CD0C0 /* DocumentAuthorTableCell.swift in Sources */,
 				8495CDE3294FA36A003176CC /* ListDocumentsViewModel.swift in Sources */,
+				84EC91AF29546B0E002CD0C0 /* DocumentCoverTableCell.swift in Sources */,
 				846DB373295079DF0092A271 /* DocumentTableCell.swift in Sources */,
 				8495CE02294FC7D4003176CC /* ListDocumentsUsecaseProvider.swift in Sources */,
 			);
